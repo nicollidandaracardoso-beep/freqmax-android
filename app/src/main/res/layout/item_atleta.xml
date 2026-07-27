@@ -1,77 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_margin="8dp">
 
-    card_view:cardCornerRadius="16dp"
-    card_view:cardElevation="8dp">
 
-
-    <LinearLayout
-
+    <TextView
+        android:id="@+id/txtNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:orientation="vertical"
-        android:padding="20dp">
-
-
-        <TextView
-            android:id="@+id/txtNome"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:text="Nome do atleta"
-
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="#212121"/>
+        android:text="Nome"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
 
 
-        <TextView
-            android:id="@+id/txtIdade"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="10dp"
-
-            android:text="Idade: 21 anos"
-
-            android:textSize="16sp"
-            android:textColor="#555555"/>
+    <TextView
+        android:id="@+id/txtIdade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Idade"
+        android:textSize="16sp"/>
 
 
-        <TextView
-            android:id="@+id/txtFcm"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="6dp"
-
-            android:text="FCM máxima: 199 bpm"
-
-            android:textSize="17sp"
-            android:textStyle="bold"
-            android:textColor="#D32F2F"/>
-
-        <TextView
-            android:id="@+id/txtClassificacao"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Intensidade"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/txtFcm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FCM"
+        android:textSize="16sp"/>
 
 
-    </LinearLayout>
+    <TextView
+        android:id="@+id/txtClassificacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Intensidade"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
 
 
-</androidx.cardview.widget.CardView>
+    <Button
+        android:id="@+id/btnExcluir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Excluir"
+        android:layout_marginTop="8dp"/>
+
+
+</LinearLayout>

@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import com.example.freqmax.adapter.AtletaAdapter;
 import com.example.freqmax.model.Atleta;
+import com.example.freqmax.utils.AtletaStorage;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnAdicionar;
     ListView listaAtletas;
 
-    ArrayList<Atleta> atletas = new ArrayList<>();
+    ArrayList<Atleta> atletas;
 
     AtletaAdapter adapter;
 
@@ -37,6 +38,19 @@ public class MainActivity extends AppCompatActivity {
         listaAtletas = findViewById(R.id.listaAtletas);
 
 
+        // Carrega atletas salvos no celular
+        atletas = AtletaStorage.carregarAtletas(this);
+
+
+        // Ordena atletas pelo maior FCM
+        Collections.sort(atletas, new Comparator<Atleta>() {
+            @Override
+            public int compare(Atleta a1, Atleta a2) {
+                return a2.getFcm() - a1.getFcm();
+            }
+        });
+
+
         adapter = new AtletaAdapter(
                 this,
                 atletas
@@ -44,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         listaAtletas.setAdapter(adapter);
+
 
 
         btnAdicionar.setOnClickListener(v -> {
@@ -60,7 +75,10 @@ public class MainActivity extends AppCompatActivity {
             int idade = Integer.parseInt(idadeTexto);
 
 
-            atletas.add(new Atleta(nome, idade));
+            Atleta atleta = new Atleta(nome, idade);
+
+
+            atletas.add(atleta);
 
 
             Collections.sort(atletas, new Comparator<Atleta>() {
@@ -71,6 +89,11 @@ public class MainActivity extends AppCompatActivity {
             });
 
 
+            // Salva no celular
+            AtletaStorage.salvarAtletas(this, atletas);
+
+
+            // Atualiza a lista
             adapter.notifyDataSetChanged();
 
 
