@@ -36,14 +36,25 @@ public class AtletaAdapter extends ArrayAdapter<Atleta> {
         TextView txtNome = convertView.findViewById(R.id.txtNome);
         TextView txtIdade = convertView.findViewById(R.id.txtIdade);
         TextView txtFcm = convertView.findViewById(R.id.txtFcm);
+        TextView txtClassificacao = convertView.findViewById(R.id.txtClassificacao);
 
 
         Atleta atleta = atletas.get(position);
 
 
         txtNome.setText(atleta.getNome());
-        txtIdade.setText("Idade: " + atleta.getIdade() + " anos");
-        txtFcm.setText("FCM máxima: " + atleta.getFcm() + " bpm");
+
+        txtIdade.setText(
+                "Idade: " + atleta.getIdade() + " anos"
+        );
+
+        txtFcm.setText(
+                "FCM máxima: " + atleta.getFcm() + " bpm"
+        );
+
+        txtClassificacao.setText(
+                "Intensidade: " + atleta.getClassificacao()
+        );
 
 
         return convertView;

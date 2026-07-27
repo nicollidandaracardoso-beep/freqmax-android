@@ -61,6 +61,15 @@
             android:textStyle="bold"
             android:textColor="#D32F2F"/>
 
+        <TextView
+            android:id="@+id/txtClassificacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Intensidade"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
 
     </LinearLayout>
 
