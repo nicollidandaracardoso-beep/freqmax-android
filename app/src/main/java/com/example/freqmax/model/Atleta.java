@@ -1,4 +1,4 @@
-package com.example.freqmax;
+package com.example.freqmax.model;
 
 public class Atleta {
 
@@ -9,10 +9,6 @@ public class Atleta {
     public Atleta(String nome, int idade) {
         this.nome = nome;
         this.idade = idade;
-        calcularFcm();
-    }
-
-    private void calcularFcm() {
         this.fcm = 220 - idade;
     }
 

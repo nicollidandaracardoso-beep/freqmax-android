@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.example.freqmax.model.Atleta;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -57,14 +59,16 @@ public class MainActivity extends AppCompatActivity {
             Collections.sort(atletas, new Comparator<Atleta>() {
                 @Override
                 public int compare(Atleta a1, Atleta a2) {
-                    return a2.fcm - a1.fcm;
+                    return a2.getFcm() - a1.getFcm();
                 }
             });
 
             listaTexto.clear();
 
             for (Atleta a : atletas) {
-                listaTexto.add(a.nome + "    -    FCM: " + a.fcm);
+                listaTexto.add(
+                        a.getNome() + "    -    FCM: " + a.getFcm()
+                );
             }
 
             adapter.notifyDataSetChanged();
